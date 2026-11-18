@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JOHCARDS - Mwaliko</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="kadi">
+    <div class="chapa">JOHCARDS</div>
+
+    <!-- Ujumbe wa hali (inapakia / hitilafu) -->
+    <div id="hali" class="hali">Inapakia...</div>
+
+    <!-- Maudhui (yanaonekana baada ya kupakia vizuri) -->
+    <div id="maudhui" style="display:none;">
+      <div class="salamu">Karibu,</div>
+      <h1 id="jinaMgeni"></h1>
+
+      <div class="mstari"></div>
+
+      <div class="alika">Umealikwa kwenye</div>
+      <h2 id="jinaTukio"></h2>
+
+      <div class="maelezo">
+        <div id="tarehe"></div>
+        <div id="venue"></div>
+      </div>
+
+      <div class="mstari"></div>
+
+      <div class="swali">Je, utahudhuria?</div>
+      <div class="vitufe">
+        <button class="kitufe ndiyo" id="btnNdiyo" onclick="jibu('yes')">Nitahudhuria</button>
+        <button class="kitufe hapana" id="btnHapana" onclick="jibu('no')">Sitaweza</button>
+      </div>
+
+      <div id="shukrani" class="shukrani"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
