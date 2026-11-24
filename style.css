@@ -118,3 +118,45 @@ h2{
   line-height:1.5;
   min-height:24px;
 }
+
+/* ============ POP UP ============ */
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(7,26,46,0.85);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:100;
+}
+
+.popup-kadi{
+  width:100%;
+  max-width:360px;
+  padding:30px 24px;
+  border:1px solid rgba(212,175,55,0.7);
+  border-radius:18px;
+  background:#0a2540;
+  text-align:center;
+  animation:popupIn 0.25s ease;
+}
+
+.popup-kadi h3{
+  font-family:'Playfair Display', serif;
+  font-size:24px;
+  font-weight:600;
+  color:#d4af37;
+  margin-bottom:12px;
+}
+
+.popup-kadi p{
+  font-size:15px;
+  line-height:1.6;
+  margin-bottom:22px;
+}
+
+@keyframes popupIn{
+  from{ opacity:0; transform:scale(0.92); }
+  to{ opacity:1; transform:scale(1); }
+}
