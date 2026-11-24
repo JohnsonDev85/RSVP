@@ -16,10 +16,10 @@
   <div class="kadi">
     <div class="chapa">JOHCARDS</div>
 
-    <!-- Ujumbe wa hali (inapakia / hitilafu) -->
-    <div id="hali" class="hali">Inapakia...</div>
+    <!-- Status message (loading / error) -->
+    <div id="hali" class="hali">Loading...</div>
 
-    <!-- Maudhui (yanaonekana baada ya kupakia vizuri) -->
+    <!-- Content (shown after loading successfully) -->
     <div id="maudhui" style="display:none;">
       <div class="salamu">Karibu,</div>
       <h1 id="jinaMgeni"></h1>
@@ -43,6 +43,15 @@
       </div>
 
       <div id="shukrani" class="shukrani"></div>
+    </div>
+  </div>
+
+  <!-- Pop up (hidden for now) -->
+  <div id="popup" class="popup" style="display:none;">
+    <div class="popup-kadi">
+      <h3 id="popupKichwa"></h3>
+      <p id="popupMaandishi"></p>
+      <button id="popupBtn" class="kitufe ndiyo">OK</button>
     </div>
   </div>
 
