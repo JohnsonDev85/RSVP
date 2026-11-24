@@ -11,6 +11,10 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
+// ============ WHATSAPP YA KUREJEA ============
+// Namba ya WhatsApp iliyomtumia mgeni ujumbe (bila +, bila nafasi)
+const WHATSAPP_NAMBA = '255774633472';
+
 // ============ KUSOMA LINK ============
 // Link ina muundo: ...?e=TUKIO_ID&g=MGENI_ID
 const params = new URLSearchParams(window.location.search);
@@ -59,6 +63,28 @@ function onyeshaJibu(chaguo){
   }
 }
 
+// ============ POP UP ============
+function onyeshaPopup(chaguo){
+  const kichwa = document.getElementById('popupKichwa');
+  const maandishi = document.getElementById('popupMaandishi');
+
+  if(chaguo === 'yes'){
+    kichwa.textContent = 'Asante!';
+    maandishi.textContent = 'Tumepokea jibu lako: utahudhuria. Tunakusubiri kwa hamu!';
+  }else{
+    kichwa.textContent = 'Pole sana';
+    maandishi.textContent = 'Tumepokea jibu lako: hutaweza kuhudhuria. Asante kwa kutujulisha.';
+  }
+
+  document.getElementById('popup').style.display = 'flex';
+}
+
+// Mgeni akibonyeza OK, anarudishwa WhatsApp
+document.getElementById('popupBtn').addEventListener('click', function(){
+  document.getElementById('popup').style.display = 'none';
+  window.location.href = 'https://wa.me/' + WHATSAPP_NAMBA;
+});
+
 // ============ KUPAKIA MWALIKO ============
 async function pakia(){
   if(!eventId || !guestId){
@@ -103,7 +129,7 @@ async function jibu(chaguo){
 
   ndiyo.disabled = true;
   hapana.disabled = true;
-  shukrani.textContent = 'Inahifadhi jibu lako...';
+  shukrani.textContent = 'Saving...';
 
   try{
     await guestRef.update({
@@ -111,6 +137,7 @@ async function jibu(chaguo){
       rsvpAt: firebase.firestore.FieldValue.serverTimestamp()
     });
     onyeshaJibu(chaguo);
+    onyeshaPopup(chaguo);
   }catch(err){
     console.error(err);
     shukrani.textContent = 'Imeshindikana kuhifadhi jibu. Tafadhali jaribu tena.';
