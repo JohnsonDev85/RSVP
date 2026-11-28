@@ -70,10 +70,10 @@ function onyeshaPopup(chaguo){
 
   if(chaguo === 'yes'){
     kichwa.textContent = 'Asante!';
-    maandishi.textContent = 'Tumepokea jibu lako: utahudhuria. Tunakusubiri kwa hamu!';
+    maandishi.textContent = 'Tumepokea jibu lako: "utahudhuria". Karibu Sana!';
   }else{
     kichwa.textContent = 'Pole sana';
-    maandishi.textContent = 'Tumepokea jibu lako: hutaweza kuhudhuria. Asante kwa kutujulisha.';
+    maandishi.textContent = 'Tumepokea jibu lako: "hutaweza kuhudhuria". Asante kwa kutujulisha.';
   }
 
   document.getElementById('popup').style.display = 'flex';
@@ -99,7 +99,7 @@ async function pakia(){
     const [tukioDoc, mgeniDoc] = await Promise.all([tukioRef.get(), guestRef.get()]);
 
     if(!tukioDoc.exists || !mgeniDoc.exists){
-      onyeshaHali('Mwaliko huu haupatikani. Tafadhali wasiliana na mwenyeji wako.');
+      onyeshaHali('Mwaliko huu haupatikani tena! Muda wake umeisha.');
       return;
     }
 
@@ -115,7 +115,7 @@ async function pakia(){
     onyeshaMaudhui();
   }catch(err){
     console.error(err);
-    onyeshaHali('Imeshindikana kupakia mwaliko. Angalia mtandao wako kisha jaribu tena.');
+    onyeshaHali('Imeshindikana kuappload mwaliko. Angalia mtandao wako kisha jaribu tena.');
   }
 }
 
@@ -140,7 +140,7 @@ async function jibu(chaguo){
     onyeshaPopup(chaguo);
   }catch(err){
     console.error(err);
-    shukrani.textContent = 'Imeshindikana kuhifadhi jibu. Tafadhali jaribu tena.';
+    shukrani.textContent = '"Failed to Save". Tafadhali jaribu tena.';
   }finally{
     ndiyo.disabled = false;
     hapana.disabled = false;
