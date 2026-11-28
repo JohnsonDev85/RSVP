@@ -72,7 +72,7 @@ function onyeshaPopup(chaguo){
     kichwa.textContent = 'Asante!';
     maandishi.textContent = 'Tumepokea jibu lako: "utahudhuria". Karibu Sana!';
   }else{
-    kichwa.textContent = 'Pole sana';
+    kichwa.textContent = 'Pole sana!';
     maandishi.textContent = 'Tumepokea jibu lako: "hutaweza kuhudhuria". Asante kwa kutujulisha.';
   }
 
